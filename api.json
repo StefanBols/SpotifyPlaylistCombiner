@@ -1,0 +1,63 @@
+[
+    {
+        "name": "Stuff",
+        "songs": [
+            "Stuff 1",
+            "Stuff 2",
+            "Stuff 3",
+            "Stuff 4",
+            "Stuff 5"
+        ]
+    },
+    {
+        "name": "Sleeping music",
+        "songs": [
+            "Sleeping music 1",
+            "Sleeping music 2",
+            "Sleeping music 3",
+            "Sleeping music 4",
+            "Sleeping music 5"
+        ]
+    },
+    {
+        "name": "Psy",
+        "songs": [
+            "Psy 1",
+            "Psy 2",
+            "Psy 3",
+            "Psy 4",
+            "Psy 5"
+        ]
+    },
+    {
+        "name": "Running",
+        "songs": [
+            "Running 1",
+            "Running 2",
+            "Running 3",
+            "Running 4",
+            "Running 5"
+        ]
+    },
+    {
+        "name": "Work",
+        "songs": [
+            "Work 1",
+            "Work 2",
+            "Work 3",
+            "Work 3",
+            "Work 4",
+            "Work 5"
+        ]
+    },
+    {
+        "name": "Misc.",
+        "songs": [
+            "Misc 1",
+            "Misc 2",
+            "Misc 3",
+            "Misc 4",
+            "Misc 5"
+        ]
+    }
+]

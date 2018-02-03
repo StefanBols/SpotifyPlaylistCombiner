@@ -17,24 +17,12 @@
                     <div class="col-md-6"><!-- Songs list -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Songs</h3>
+                                <h3 class="panel-title">Songs for combined playlist</h3>
                             </div>
-                            <table class="table">
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Akon - So Lonely</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Akon - Smakc that</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Bruno Mars - Something</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Boy Band - Nothing else</td>
+                            <table class="table" data-bind="foreach: songs">
+                                <tr data-bind="click: selectList">
+                                    <td><input type="checkbox" data-bind="checked: selected"/></td>
+                                    <td data-bind="text: title"></td>
                                 </tr>
                             </table>
                         </div>
@@ -44,30 +32,10 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">Playlists</h3>
                             </div>
-                            <table class="table">
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Stuff</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Sleeping music</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Psy</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Running</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Work</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"/></td>
-                                    <td>Misc</td>
+                            <table class="table" data-bind="foreach: lists">
+                                <tr data-bind="click: selectList">
+                                    <td><input type="checkbox" data-bind="checked: selected"/></td>
+                                    <td data-bind="text: title"></td>
                                 </tr>
                             </table>
                         </div>
