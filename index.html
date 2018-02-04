@@ -12,11 +12,11 @@
     </head>
 
     <body>
-            <div class="container-login">
+            <div class="container-login" data-bind="visible: !loggedIn()">
                 <div class="login-form">
                     <div class="container-fluid">
                         <div class="row">
-                        <form>
+                        <form data-bind="submit: loginForm">
                             <div class="form-group">
                                 <label for="email">Email address</label>
                                 <input type="email" class="form-control" id="email" placeholder="Email..."/>
@@ -25,7 +25,7 @@
                                 <label for="pwd">Password</label>
                                 <input type="password" class="form-control" id="pwd" placeholder="Password..."/>
                             </div>
-                                <button class="btn btn-primary btn-block">Login</button>
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </form>
                         </div>
                     </div>

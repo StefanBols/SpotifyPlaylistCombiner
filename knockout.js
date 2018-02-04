@@ -44,6 +44,10 @@ function SpotifyPlaylistCombinerViewModel() {
         list.toggleSelected();
     }
 
+    self.loginForm = function() {
+        self.loggedIn(true);
+    }
+
     // Get data
     $.getJSON('api.json', function(allData) {
         var mappedTasks = $.map(allData, function(item) {
