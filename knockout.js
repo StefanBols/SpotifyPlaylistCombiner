@@ -20,6 +20,7 @@ function Playlist(data) {
 function SpotifyPlaylistCombinerViewModel() {
     var self = this;
 
+    self.loggedIn = ko.observable(false);
     self.lists = ko.observableArray([]);
     self.selectedPlaylists = ko.computed(function() {
         return ko.utils.arrayFilter(self.lists(), function(list) { return list.selected() });
