@@ -1,40 +1,47 @@
 function Song(data) {
-    this.title = data.title;
-    this.selected = ko.observable(data.selected);
+    var self = this;
+    self.title = data.title;
+    self.selected = ko.observable(data.selected);
 
-    this.toggleSelected = function() {
-        this.selected(!this.selected());
+    self.toggleSelected = function() {
+        self.selected(!self.selected());
     }
 }
 function Playlist(data) {
-    this.title = data.title;
-    this.songs = data.songs;
-    this.selected = ko.observable(data.selected);
+    var self = this;
 
-    this.toggleSelected = function() {
-        this.selected(!this.selected());
+    self.title = data.title;
+    self.songs = data.songs;
+    self.selected = ko.observable(data.selected);
+
+    self.toggleSelected = function() {
+        self.selected(!self.selected());
     }
 }
 
+function LoginViewModel(parent) {
+    var self = this;
+    self.loggedIn = ko.observable(false);
+    self.username = ko.observable();
+
+    self.loginForm = function() {
+        self.loggedIn(true);
+        parent.setUser();
+    }
+}
 
 function SpotifyPlaylistCombinerViewModel() {
     var self = this;
 
-    self.loggedIn = ko.observable(false);
     self.lists = ko.observableArray([]);
-    self.selectedPlaylists = ko.computed(function() {
-        return ko.utils.arrayFilter(self.lists(), function(list) { return list.selected() });
-    });
     self.songs = ko.computed(function() {
-        testSongs = [];
-        for(var i = 0; i < selectedPlaylists().length; i++) {
-            var tmpPlaylist = selectedPlaylists()[i];
-            for(var ii = 0; ii < tmpPlaylist.songs.length; ii++) {
-                var tmpSong = tmpPlaylist.songs[ii];
-                testSongs.push(tmpSong);
-            }
-        }
-        return testSongs;
+        return _
+            .chain(self.lists())
+            .filter(function(list) { return list.selected() })
+            .map('songs')
+            .flatten()
+            .sortBy('title')
+            .value()
     });
 
     self.AddSong = function(song) {
@@ -43,9 +50,8 @@ function SpotifyPlaylistCombinerViewModel() {
     self.selectList = function(list) {
         list.toggleSelected();
     }
-
-    self.loginForm = function() {
-        self.loggedIn(true);
+    self.selectSong = function(song) {
+        song.toggleSelected();
     }
 
     // Get data
@@ -61,4 +67,18 @@ function SpotifyPlaylistCombinerViewModel() {
     });
 }
 
-ko.applyBindings(SpotifyPlaylistCombinerViewModel);
+function AppViewModel() {
+    var self = this;
+
+    self.login = new LoginViewModel(self);
+    self.combiner = ko.observable();
+
+    self.setUser = function() {
+        self.combiner(new SpotifyPlaylistCombinerViewModel(self.login.username()));
+    }
+
+    self.login.loginForm();
+
+}
+
+ko.applyBindings(new AppViewModel());
