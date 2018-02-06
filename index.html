@@ -38,7 +38,7 @@
                     <div class="col-md-6"><!-- Songs list -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Songs for combined playlist</h3>
+                                <h3 class="panel-title">Songs for combined playlist (<span data-bind="text: songs().length"></span> songs)</h3>
                             </div>
                             <table class="table" data-bind="foreach: songs">
                                 <tr data-bind="click: $parent.selectSong">
@@ -51,12 +51,12 @@
                     <div class="col-md-6"><!-- Playlists list -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Playlists</h3>
+                                <h3 class="panel-title">Playlists (<span data-bind="text: loadedPlaylists"></span></span><span data-bind="visible: loadedPlaylists < availablePlaylists">/<span data-bind="text: availablePlaylists"></span></span>)</h3>
                             </div>
                             <table class="table" data-bind="foreach: lists">
                                 <tr data-bind="click: $parent.selectList">
                                     <td><input type="checkbox" data-bind="checked: selected"/></td>
-                                    <td><span  data-bind="text: title"></span> (<span  data-bind="text: songs.length"></span> songs)</td>
+                                    <td><span  data-bind="text: title"></span> (<span  data-bind="text: songsCount"></span> songs)</td>
                                 </tr>
                             </table>
                         </div>
