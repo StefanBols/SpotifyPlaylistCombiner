@@ -59,9 +59,6 @@ function SpotifyPlaylistCombinerViewModel() {
     self.selectList = function(list) {
         $.ajax(list.trackUrl + '?fields=total%2Climit%2Coffset%2Cnext%2Cprev%2Citems(track(artists(name)%2C%20name%2C%20id))&limit=100', {
             dataType: 'json',
-            headers: {
-                'Authorization': 'Bearer BQCnmx-cgeB7s_l16BgnlEGe8-QAomk8OXKT4QFIk1hyaNNqpfKmh16Wc2pZ-vVT1KL7DX6_cfuYEUOBfl2__ER7-Q_JPYCXV-jRLx1At-K_NtLODO2uqe7wbdw2UtZdbtukiHTsJcCd_A5bEJiLYVhHgcG_'
-            },
             success: function(r) {
                 console.log(r);
                 list.limit = r.limit;
@@ -98,9 +95,6 @@ function SpotifyPlaylistCombinerViewModel() {
 
     $.ajax('https://api.spotify.com/v1/me/playlists?limit=50', {
         dataType: 'json',
-        headers: {
-            'Authorization': 'Bearer BQDxL8tolIEZEzBuEw1AnLVmcY-NjGeZQdHBqa_gBJHdyi100SrohCtpourXo-hv1SdwIQPcBZ4NlP0dgXEhqk6fiHUZnyKQjQRAAXtzwwDDBnD0g8V7D5YKf1mQAy2twowLNfnfvVMoMMlIGP7DXaQvNKB6'
-        },
         success: function(r) {
             console.log(r);
             self.loadedPlaylists(r.items.length);

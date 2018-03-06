@@ -65,7 +65,13 @@
             </div>
 
 
+        <script src="./settings.json.js"></script>
         <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            $.ajaxPrefilter(function(options, originalOptions, xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + settings.token_override || settings.token)
+            });
+        </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
         <script src="node_modules/underscore/underscore-min.js"></script>

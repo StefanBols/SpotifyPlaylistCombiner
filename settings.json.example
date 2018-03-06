@@ -1,5 +1,7 @@
 {
-    "client_id": "CLIENT_ID", // Your client id
-    "client_secret": "CLIENT_SECRET", // Your secret
-    "redirect_uri": "REDIRECT_URI" // Your redirect uri
+    "client_id": "...", // Your client id
+    "client_secret": "...", // Your secret
+    "redirect_uri": "..." // Your redirect uri
+
+    "token_override": "..." // If this is filled, no login required
 }
